@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "Showcase",
+  "version": "0.1",
+  "description": "Google Chrome Extension to create a rolling showcase demonstrator for web pages",
+  "minimum_chrome_version": "49",
+  "icons": {
+    "128": "images/icon32.png",
+    "16":  "images/icon32.png",
+    "32":  "images/icon32.png",
+    "48":  "images/icon32.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "scripts": [ "./src/showcase.js" ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": ["./lib/jquery-2.2.3.min.js", "./src/content.js"]
+    }
+  ],
+  "browser_action": {
+    "default_icon": "images/icon32.png"
+  }
+}
